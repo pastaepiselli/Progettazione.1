@@ -1,0 +1,33 @@
+Specifica delle operazioni dello UseCase GestioneBiglietti
+prezzo(b: Biglietto): Reale >= 0
+pre: nessuna
+post:
+  Sia t: Tariffa tale che esista il link(b,t): big_tar
+  Sia pb il valore dell'attributo prezzo_base di t (oppure, sia pb = t.prezzo_base)
+  
+  Se il biglietto b e istanza di standard result = pb 
+  Se b e istanza di ExtendedAccess:
+  Sia T l'insime degli oggetti temp: Temporanea tali che esiste un link(b, temp):exp_temp.
+  Sia S la somma di temp.prezzo_accesso per ogni elemento temp nell'insieme T.
+  result  = S + pb 
+
+
+Specifica delle operazioni dello UseCase Statistiche
+
+opere_mai_esposte(a: Artista, inizio: Data, fine: Data): Opera[0..*]
+pre:
+fine >= inizio
+post:
+  Sia result l'insime degli oggetti o: Opera tali che:
+    1. esiste il link (o, a): op_art 
+    2. Non esiste nessun link  l:espone che coinvolge l'opera o
+    3. Il periodo [l.inizio, l.fine] si sovrappone al periodo[inizio, fine]
+
+temporanee_piu_popolate(inizio: Date, fine: Date): Temporanea[0..*]
+precondizioni: fine >= inizio
+postcondizioni:
+Sia V l'insieme di coppie (temp, n) dove:
+  - temp e istanza della classe Temporanea
+  - n e il numero dei link dell'associazione exp_temp che coinvolgono temp e un oggetto b: ExtendedAccess con b.validita compreso tra inizio e fine.
+    
+  result  =

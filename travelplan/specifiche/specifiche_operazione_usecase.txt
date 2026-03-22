@@ -1,0 +1,40 @@
+Specifiche dello usecase GestioneViaggi
+
+calcoloAttivitaSpostamento(u: Utente, v: Viaggio) -> Intero
+precondizioni:
+postcondizioni: 
+	- Sia E l'insieme degli oggetti s: Spostamento che partecipano ad un link associ (s, v): comprende
+	- Sia B l'insieme dei link (s, u): partecipa_attivita in E
+	- Sia N la cardinalita di B
+	- result = N
+
+calcoloUtentiViaggio(v: Viaggio) -> u: Utente
+precondizioni:
+postcondizioni:
+	- Sia E l'insieme di oggetti u: Utente che partecipano ad un link assoc. (u, v): partecipa e (u, v): organizza
+	- Per ogni u: Utente in E sia B l'insieme dei link di assoc. (u, a):partecipa_attivita
+	- result = u: Utente con cardinalita di B maggiore  
+
+calcolaUtentiAttivita(a: Attivita) -> Intero:
+precondizioni:
+postcondizioni:
+	- sia E l'insieme dei link assoc(a, u): partecipa_attivita
+	- Sia N la cardinalita di E
+	- result = N
+
+calcolaViaggioAttivitaMaggiorNumUtenti(v: Viaggio) -> a: Attivita
+precondizioni:
+postcondizioni:
+	- Sia E l'insieme degli oggetti a: Attivita che partecipano ad un link assoc.(a, v): comprende
+	- Per ogni oggetto a dell'insieme E,  calcolaUtentiAttivita(a)
+	
+	- result = a: Attivita con calcolaUtentiAttivita maggiore
+
+
+ottieniUtentiMaggioreNumeroAttivita(v: Viaggio) -> [u: Utente]
+precondizioni:
+postcondizioni:
+  - Sia E l'insieme di u: Utenti con un link assoc (u, v): partecipa
+  - Sia Va (Va = viaggio + attivita) l'insieme di a: Attivita che partecipano ad un link assoc (v, a): comprende 
+  - Sia Ua (Ua = utente + attivita) per ogni u: Utente in E e a: Attivita in Va l'insieme  di link assoc (u, a): partecipa_attivita 
+  - result lista sorted di utenti con maggior numero di attivita

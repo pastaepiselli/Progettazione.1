@@ -1,0 +1,14 @@
+Specifica delle classi TravelPlan
+
+Specifica della classe utente:
+Ogni istanza di questa classe rappresenta un oggetto utente:
+
+[V.Utente.data_iscrizione]
+Per ogni u: Utente u.data_iscrizione >= adesso.
+
+[V.Utente.organizzatore]
+Per ogni u: Utente, v: Viaggio o esiste il link assoc (u, v): organizzatore o (u, v): partecipa
+
+
+Specifica della classe utente:
+

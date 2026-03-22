@@ -1,0 +1,12 @@
+Classe Biglietto
+
+esposizioni_valide(): Esposizioni[0..*]
+precondizioni:
+postcondizioni:
+  - Sia P l'insieme degli oggetti p: Permanente tali che p.inizio <= this.validita.
+  - Se this e istanza di Standard result = P 
+  - Se this e instanza di ExendedAccess:
+      - Sia T l'insieme di oggetti t:Temporanea tali che:
+         - this.validita <= t.fine
+          - esiste il link (this,t): ext_temp
+      - result =  P U (unione) T 

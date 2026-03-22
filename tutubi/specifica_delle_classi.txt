@@ -1,0 +1,34 @@
+Specifica della classe Utente
+
+Ogni istanza di questa classe rappresenta un oggetto Utente.
+
+[V.Utente.valutazione]
+Per ogni u: Utente si ha un link assoc (u,val: valutazione):ut_val e (Val, v:Video): val_video solo se u: Utente ha link assoc (u, v: Video): visualizza.
+
+[V.Utente.commento]
+Per ogni u: Utente si ha un link assoc (u, com: Commento): ut_com e (com, v: Video):com_vid solo se u: Utente ha link assoc (u, v): visualizza.
+
+[V.Utente.AutoRecensione]
+Per ogni oggetto u: Utente e v: Video
+Non esiste un link di assoc (u: Utente, val: Valutazione): ut_val e (val,v: Video): val_video se u: Utente ha link assoc(u, v: Video): pubblica.
+
+Specifica della classe Video.
+
+numeroVisioni() -> Intero >= 0
+precondizioni:
+postcondizioni:
+  - Sia E l'insime dei link assoc (v, u): visualizza
+  - Sia N la cardinalita di E 
+  - Result = N 
+
+Specifica della classe VideoCensurato
+
+Per ogni vc: VideoCensurato puo esistere il solo il link assoc (u, vc): pubblica.
+
+Specifica della classe Playlist.
+
+[V.Playlist.datacreazione]
+Non esiste p: Playlist che partecipa ad un link assoc (p, u):creatore_playlist con valore dell'attriubuo p.datacreazione < u.data_iscrizione.
+
+Specifica della classe PlaylistPubblica
+

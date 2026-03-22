@@ -1,0 +1,22 @@
+Specifiche classi TravelPlan
+
+Specifiche della classe Utente
+
+
+[V.Utente.data_iscrizione]
+Per ogni u: Utente u.data_iscrizione >= adesso.
+
+Specifica della classe Viaggio
+
+[V.Viaggio.numero_minimo]
+Per ogni v: Viaggio v.numero_minimo < v.numero_massimo.
+
+Specifica della classe Attivita
+
+[V.Attivita.durata]
+Per ogni a: Attivita a.istante_inizio + a.durata non deve intersecare con l'istante d'inizio di un'altra attivita di quel viaggio.
+
+[V.Attivita.istante_inizio]
+Per ogni a: Attivita a.istante_inizio >= adesso.
+
+
